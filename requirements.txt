@@ -1,0 +1,6 @@
+flask
+langchain
+langchain-community
+ollama
+pytest
+pytest-cov

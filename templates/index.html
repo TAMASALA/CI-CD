@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI Assistant</title>
+</head>
+
+<body>
+<h2>Ask AI</h2>
+
+<input id="question" placeholder="What is AI?">
+<button onclick="askAI()">Ask</button>
+
+<p id="result"></p>
+
+<script>
+async function askAI() {
+    let q = document.getElementById("question").value;
+
+    let res = await fetch("/ask", {
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({question:q})
+    });
+
+    let data = await res.json();
+    document.getElementById("result").innerText = data.answer;
+}
+</script>
+
+</body>
+</html>
